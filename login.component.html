@@ -1,0 +1,21 @@
+<div class="login">
+    
+  <form class="login-container" [formGroup]="loginForm" (ngSubmit)="login()">
+        <mat-label>Username</mat-label>
+            <input matInput  type="email" name="username" formControlName="username" >
+            <mat-error *ngIf="submitted && formControls.username.errors">
+                <div *ngIf="formControls.username.errors.required">Username is required</div>
+                <div *ngIf="formControls.username.errors?.['email']">Please provide a valid email address </div>
+            </mat-error>
+            <mat-label>Password</mat-label>
+                <input type="password" formControlName="password" matInput>
+             <mat-error *ngIf="submitted && formControls.password.errors">
+                <div *ngIf="formControls.password.errors.required">Password is required</div>
+                <div *ngIf="formControls.password.errors.minlength">Password should be more than 6 characters</div>
+             </mat-error>
+       
+         <button type="submit">Login</button> 
+  </form>
+  
+ 
+</div>
